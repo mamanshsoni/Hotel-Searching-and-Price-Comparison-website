@@ -1,0 +1,28 @@
+<?php
+
+ curl --request POST \
+         --url 'https://api.makcorps.com/auth' \
+         --header 'Content-Type: application/json' \
+         --data '{
+              "username":"franklin",
+              "password":"franklin@123"
+      }'
+curl --request GET \
+          --url https://api.makcorps.com/free/london \
+          --header 'Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MTc2NzczNjAsImlkZW50aXR5IjozLCJuYmYiOjE1MTc2NzczNjAsImV4cCI6MTUxNzY3OTE2MH0.ytSqQj3VDymEaJz9EIdskWELwDQZRD1Dbo6TuHaPz9U'
+
+    WebRequest req = WebRequest.Create(@"https://sub.domain.com/api/operations?param=value&param2=value");
+    req.Method = "GET";
+    req.Headers["Authorization"] = "Basic " + Convert.ToBase64String(Encoding.Default.GetBytes("username:password"));
+    //req.Credentials = new NetworkCredential("username", "password");
+    HttpWebResponse resp = req.GetResponse() as HttpWebResponse;
+
+
+$data = file_get_content('https://api.makcorps.com/free/london');
+$odata = json_decode($data);
+
+
+echo "<pre>";
+print_r($odata);
+
+?>
